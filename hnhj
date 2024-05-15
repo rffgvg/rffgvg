@@ -1,0 +1,46 @@
+img{
+	display: none;   /*隐藏图片*/
+}
+#box-t{
+	  position: relative;   /*设置相对定位*/
+}
+#box-t img{
+	width:1000px;
+	height:400px;
+}
+#left{
+    font-size:45px;
+    color:#fff;
+    position: absolute;   /*设置绝对定位*/
+    top:45%;
+    cursor: pointer;      /*设置鼠标为小手状态*/
+}
+#right{
+    font-size:45px;
+    color:#fff;
+    position: absolute;
+    top:45%;
+    right:0;
+    cursor: pointer;
+}
+.tup{
+	display: block;
+}
+.box-t-y{
+	position: absolute;  /*给按钮添加绝对定位*/
+    right:45%;
+    bottom:0;     /*下边距为0*/
+}
+.box-t-y p{
+    width:20px;
+    height:20px;
+    display: inline-block;  /*不独占一行的块级元素*/
+    opacity: 0.7;           /*设置透明度*/
+    border:1px solid #fff;  /*边框为1像素白色实线*/
+    border-radius:10px;     /*实现椭圆效果*/
+    margin-right:10px;
+    cursor: pointer;
+}
+.box-y-x{
+	background: #6e9a3b;
+}
