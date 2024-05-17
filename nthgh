@@ -1,0 +1,114 @@
+<div class='game_inner'>
+		      <div :class="{'active': tooltip}" class='game_inner__tooltip'>
+		        <div class='space'></div>
+		        <div class='smash'>粉碎空格键！</div>
+		      </div>
+		      <div class='game_inner__footer'>
+		        <div class='madeby'>
+		          Made by
+		          <a href='https://haiyong.site' target='_blank'>Hai Yong</a>
+		        </div>
+		        <div class='resources'>
+		          <div class='ui_xp'>
+		            <img src='https://assets.codepen.io/217233/ktkXpIxon.png'>
+		            {{ xp }}xp
+		          </div>
+		        </div>
+		      </div>
+		      <div class='game_inner__left'>
+		        <div class='buttons'>
+		          <img :class="{'off': !audioController.sfxOn}" @click='audioController.sfxOn = !audioController.sfxOn' src='https://assets.codepen.io/217233/ktkSfxButton.png'>
+		          <img :class="{'off': muteBg}" @click='toggleBg()' src='https://assets.codepen.io/217233/ktkBgButton.png'>
+		        </div>
+		        <div class='logo'>
+		          <img src='https://assets.codepen.io/217233/ktkLogo.png'>
+		        </div>
+		        <div class='timer'>
+		          <img src='https://assets.codepen.io/217233/ktkTimerBg.png'>
+		          <div class='timer_inner'>
+		            <div class='minutes'>
+		              {{ minutes }}
+		            </div>
+		            <div class='seconds'>
+		              {{ seconds }}
+		            </div>
+		            <div class='ms'>
+		              {{ ms }}
+		            </div>
+		          </div>
+		        </div>
+		        <div class='ui'>
+		          <div class='ui_progress'>
+		            <div class='ui_progress__stage'>
+		              STAGE {{ stage }}
+		            </div>
+		            <div class='ui_progress__bar'>
+		              <div :style='{width: `${((500 / enemiesPerStage) * (enemiesDefeated + 1)) - ((500 / enemiesPerStage) / 2)}px`}' class='inner'></div>
+		              <div class='outer'></div>
+		            </div>
+		            <div class='ui_progress__icons'>
+		              <div :key='enemies' class='icon' v-for='(enemies, index) in enemiesPerStage'>
+		                <div :class="{'complete': index &lt; enemiesDefeated, 'active': index == enemiesDefeated}" class='icon_bg'></div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		        <div class='center'>
+		          <div class='characters'>
+		            <div :class="{'run': stageComplete}" class='player'>
+		              <div class='stats'>
+		                <div class='ui_strength'>
+		                  <img src='https://assets.codepen.io/217233/ktkStrengthIcon.png'>
+		                  {{ strength }} STR
+		                  <br>
+		                </div>
+		                <div class='ui_intelligence'>
+		                  <img src='https://assets.codepen.io/217233/ktkKnowledgeIcon.png'>
+		                  {{ intelligence }} INT
+		                </div>
+		                <div class='ui_speed'>
+		                  <img src='https://assets.codepen.io/217233/ktkSpeedIcon.png'>
+		                  {{ speed }} SPD
+		                </div>
+		              </div>
+		              <div :class="{'pressed': pressed}" class='player_sprite'></div>
+		            </div>
+		            <div :class="{'run': stageComplete}" class='enemy'>
+		              <div :class="{'pressed': pressed, 'killed' : enemyKilled, 'boss' : boss}" :style='{filter: `hue-rotate(${80 * (stage - 1)}deg)`}' class='enemy_sprite'></div>
+		              <div :class="{'pressed': pressed}" class='enemy_hit'>
+		                {{ damage }}
+		              </div>
+		              <div :class="{'killed': enemyKilled}" class='enemy_xp'>
+		                <img src='https://assets.codepen.io/217233/ktkXpIxon.png'>
+		                {{ xpGained }}xp
+		              </div>
+		              <div class='enemy_health'>
+		                <div class='enemy_health_stats'>
+		                  <div class='name'>
+		                    {{ enemy.name }}
+		                  </div>
+		                  <div class='level'>
+		                    HP: {{ enemy.health }}
+		                  </div>
+		                </div>
+		                <div :style='{width: `${100 * (enemy.health / enemy.initHealth)}%`}' class='enemy_health_inner'></div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		      <div class='game_inner__right' v-if='shoppingPhase'>
+		        <div class='timer'>
+		          <img src='https://assets.codepen.io/217233/ktkTimerBg.png'>
+		          <div class='timer_inner'>
+		            <div class='minutes'>
+		              {{ minutes }}
+		            </div>
+		            <div class='seconds'>
+		              {{ seconds }}
+		            </div>
+		            <div class='ms'>
+		              {{ ms }}
+		            </div>
+		          </div>
+		        </div>
