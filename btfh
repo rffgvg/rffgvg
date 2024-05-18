@@ -1,0 +1,24 @@
+#include <QApplication>
+#include <QWebEngineView>
+#include <QUrl>
+ 
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+ 
+    // 创建一个QWebEngineView实例
+    QWebEngineView* webView = new QWebEngineView();
+ 
+    // 加载一个网页
+    webView->load(QUrl("https://www.example.com"));
+ 
+    // 显示QWebEngineView
+    webView->show();
+ 
+    // 假设用户已经浏览了一些页面，现在模拟点击“后退”按钮
+    if (webView->history()->canGoBack()) {
+        webView->back(); // 回退到上一个页面
+    }
+ 
+    return app.exec();
+}
