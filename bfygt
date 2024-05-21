@@ -1,0 +1,18 @@
+// errorLogger.js
+import log4javascript from 'log4javascript';
+
+const errorLogger = log4javascript.getLogger('error');
+
+// 将错误日志发送到服务器
+const sendErrorLog = (errorMessage) => {
+  // 发送错误日志的逻辑
+};
+
+// 捕获全局错误
+window.onerror = (message, source, lineno, colno, error) => {
+  const errorMessage = `${message} (${source}:${lineno})`;
+  errorLogger.error(errorMessage);
+  sendErrorLog(errorMessage);
+};
+
+export default errorLogger;
