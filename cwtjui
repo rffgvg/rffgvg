@@ -1,0 +1,14 @@
+static {
+        DEFAULT = new CSVFormat(",", Constants.DOUBLE_QUOTE_CHAR, (QuoteMode)null, (Character)null, (Character)null, false, true, "\r\n", (String)null, (Object[])null, (String[])null, false, false, false, false, false, false, DuplicateHeaderMode.ALLOW_ALL);
+        EXCEL = DEFAULT.builder().setIgnoreEmptyLines(false).setAllowMissingColumnNames(true).build();
+        INFORMIX_UNLOAD = DEFAULT.builder().setDelimiter('|').setEscape('\\').setQuote(Constants.DOUBLE_QUOTE_CHAR).setRecordSeparator('\n').build();
+        INFORMIX_UNLOAD_CSV = DEFAULT.builder().setDelimiter(",").setQuote(Constants.DOUBLE_QUOTE_CHAR).setRecordSeparator('\n').build();
+        MONGODB_CSV = DEFAULT.builder().setDelimiter(",").setEscape(Constants.DOUBLE_QUOTE_CHAR).setQuote(Constants.DOUBLE_QUOTE_CHAR).setQuoteMode(QuoteMode.MINIMAL).setSkipHeaderRecord(false).build();
+        MONGODB_TSV = DEFAULT.builder().setDelimiter('\t').setEscape(Constants.DOUBLE_QUOTE_CHAR).setQuote(Constants.DOUBLE_QUOTE_CHAR).setQuoteMode(QuoteMode.MINIMAL).setSkipHeaderRecord(false).build();
+        MYSQL = DEFAULT.builder().setDelimiter('\t').setEscape('\\').setIgnoreEmptyLines(false).setQuote((Character)null).setRecordSeparator('\n').setNullString("\\N").setQuoteMode(QuoteMode.ALL_NON_NULL).build();
+        ORACLE = DEFAULT.builder().setDelimiter(",").setEscape('\\').setIgnoreEmptyLines(false).setQuote(Constants.DOUBLE_QUOTE_CHAR).setNullString("\\N").setTrim(true).setRecordSeparator(System.lineSeparator()).setQuoteMode(QuoteMode.MINIMAL).build();
+        POSTGRESQL_CSV = DEFAULT.builder().setDelimiter(",").setEscape((Character)null).setIgnoreEmptyLines(false).setQuote(Constants.DOUBLE_QUOTE_CHAR).setRecordSeparator('\n').setNullString("").setQuoteMode(QuoteMode.ALL_NON_NULL).build();
+        POSTGRESQL_TEXT = DEFAULT.builder().setDelimiter('\t').setEscape('\\').setIgnoreEmptyLines(false).setQuote((Character)null).setRecordSeparator('\n').setNullString("\\N").setQuoteMode(QuoteMode.ALL_NON_NULL).build();
+        RFC4180 = DEFAULT.builder().setIgnoreEmptyLines(false).build();
+        TDF = DEFAULT.builder().setDelimiter('\t').setIgnoreSurroundingSpaces(true).build();
+    }
