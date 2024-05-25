@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>案例</title>
+<style>
+  .box{
+    /*设置矩形的宽*/
+    width:300px;
+    /*设置矩形的高*/
+    height:150px;
+    /*设置矩形的背景颜色*/
+    background-color:white;
+    /*设置矩形的边框*/
+    border-width:2px;
+    border-color:black;
+    border-style:dashed;/*dashed表示虚线，solid表示实线*/
+  }
+</style>
+</head>
+
+<body>
+  <!-- 定义一个div标签 -->
+  <div class="box"></div>
+</body>
+
+</html>
