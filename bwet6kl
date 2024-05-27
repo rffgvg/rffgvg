@@ -1,0 +1,10 @@
+[HttpGet("{id}")] // 如果需要传参则需要添加该参数，表示参数为必需
+public async Task<ActionResult<List<Staff>>> GetStaff(int id)
+{
+    var staff = await _context.Staff.FindAsync(id); // 找到id相同的数据
+​
+    if(staff is null) 
+        return NotFound("找不到该员工。");
+​
+    return Ok(staff);
+}
