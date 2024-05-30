@@ -1,0 +1,11 @@
+escapeshellarg ( string $arg )可以用到php 的安全中，会过滤掉arg 中存在的一些特殊字符。在输入的参数中如果包含中文传递给escapeshellarg，会被过滤掉。
+escapeshellcmd ( string $command )
+escapeshellcmd()函数会转义命令中的所有shell 元字符来完成工作。这些元字符包括：# & ; ` ,| * ? ~ < > ^ ( ) [ ] { } $ \\。
+实例：
+<?php
+//代码审计命令注入
+$action = $_GET('cmd');
+echo "<pre>";
+echo shell_exec(escapeshellcmd($action))
+echo "<pre/>"
+?>
