@@ -1,0 +1,72 @@
+<?php
+
+error_reporting(0);
+highlight_file(__FILE__);
+
+// flag.php
+class XYCTFNO1
+{
+    public $Liu;
+    public $T1ng;
+    private $upsw1ng;
+
+    public function __construct($Liu, $T1ng, $upsw1ng = Showmaker)
+    {
+        $this->Liu = $Liu;
+        $this->T1ng = $T1ng;
+        $this->upsw1ng = $upsw1ng;
+    }
+}
+
+class XYCTFNO2
+{
+    public $crypto0;
+    public $adwa;
+
+    public function __construct($crypto0, $adwa)
+    {
+        $this->crypto0 = $crypto0;
+    }
+
+    public function XYCTF()
+    {
+        if ($this->adwa->crypto0 != 'dev1l' or $this->adwa->T1ng != 'yuroandCMD258') {
+            return False;
+        } else {
+            return True;
+        }
+    }
+}
+
+class XYCTFNO3
+{
+    public $KickyMu;
+    public $fpclose;
+    public $N1ght = "Crypto0";
+
+    public function __construct($KickyMu, $fpclose)
+    {
+        $this->KickyMu = $KickyMu;
+        $this->fpclose = $fpclose;
+    }
+
+    public function XY()
+    {
+        if ($this->N1ght == 'oSthing') {
+            echo "WOW, You web is really good!!!\n";
+            echo new $_POST['X']($_POST['Y']);
+        }
+    }
+
+    public function __wakeup()
+    {
+        if ($this->KickyMu->XYCTF()) {
+            $this->XY();
+        }
+    }
+}
+
+
+if (isset($_GET['CTF'])) {
+    unserialize($_GET['CTF']);
+}
