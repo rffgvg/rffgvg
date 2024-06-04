@@ -1,0 +1,23 @@
+import java.util.HashMap;
+import java.util.Map;
+ 
+@RestController
+public class LoginController {
+ 
+    @Autowired
+    private EmpService empService;
+ 
+    @PostMapping("/login")
+    public Result login(@RequestBody Emp emp){
+        Emp e = empService.getUserAndPassword(emp);
+        if (e != null){
+            Map<String,Object> claims = new HashMap<>();
+            claims.put("姓名",e.getName());
+            claims.put("用户名",e.getUsename());
+            String s = JWT.getJWT(claims);
+            return Result.success(s);
+        }
+        return Result.error("用户登录失败!!!");
+    }
+ 
+}
