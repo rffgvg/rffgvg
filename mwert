@@ -1,0 +1,13 @@
+import org.dom4j.io.SAXReader;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+ 
+@Configuration
+public class Config {
+    
+    @Bean
+    public SAXReader saxReader(){
+        return new SAXReader();
+    }
+ 
+}
