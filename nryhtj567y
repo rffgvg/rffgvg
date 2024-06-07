@@ -1,0 +1,16 @@
+  this.createParticles = function() {
+      var i = this.particleRate;
+      while (i--) {
+        this.particles.push(new this.Particle());
+      }
+    };
+    this.removeParticles = function() {
+      var i = this.particleRate;
+      while (i--) {
+        var p = this.particles[i];
+        if (p.y > _this.ch - 20 - p.height) {
+          p.renderBubble();
+          _this.particles.splice(i, 1);
+        }
+      }
+    };
