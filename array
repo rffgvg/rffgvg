@@ -1,0 +1,15 @@
+ArrayList paras=new ArrayList();
+string refSql="";
+bool hastitle=false;
+System.Data.CommandType ct=System.Data.CommandType.Text;
+public void FillTable(HtmlTable tb, FillType ft, bool SpaceInEmptyCell, int MinClearRowsCount, int refStartRowId,int refCopyRowId,bool allowToHTML)
+ {
+      object[,] ReaderData = GetReaderData("SqlServer","您的连接串","",paras,hastitle,ct);
+ 
+                if (ReaderData == null && RowsCount==0)
+                {
+                    while (tb.Rows.Count > MinClearRowsCount)
+                    {
+                        tb.Rows.RemoveAt(tb.Rows.Count - 1);
+                    }
+ 
