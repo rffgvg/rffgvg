@@ -1,0 +1,25 @@
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Web;
+using System.Web.Services;
+
+namespace TestProject
+{
+    [WebService(Namespace = "http://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    [System.Web.Script.Services.ScriptService]
+    public class Test : WebService
+    {
+
+        [WebMethod]
+        public void GetJsonData()
+        {
+            string json = "{\"MapPoints\":[{\"Coordinates\":[\"118.87220827635\",\"34.885061248714\"],\"Speed\":\"45.7\",\"Time\":\"2024-05-13T13:02:09\"}]}";
+            HttpContext.Current.Response.ContentType = "application/json";
+            HttpContext.Current.Response.Write(json);
+        }
+    }
+}
