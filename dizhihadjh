@@ -1,0 +1,21 @@
+  </view>
+    <view class="tool-menu-detail" bindtap="goAddressList">
+      <view style="background: url({{imgUrl}}/upload/20220608/myAdd.png);background-size: 100% 100%;"
+        class="toolImgBack"></view>
+      <view class="tool-title">收货地址</view>
+    </view>
+  </view>
+  <view class="tool-menu-two">
+    <view class="tool-menu-detail" style="position: relative;">
+      <view style="background: url({{imgUrl}}/upload/20220608/customService.png);background-size: 100% 100%;"
+        class="toolImgBack"></view>
+      <view class="tool-title">联系客服</view>
+      <button class="kefu-btn" open-type="contact" style="width:100%"></button>
+    </view>
+    <view class="tool-menu-detail" bindtap="setUp">
+      <view style="background: url({{imgUrl}}/upload/20220608/set.png);background-size: 100% 100%;"
+        class="toolImgBack"></view>
+      <view class="tool-title">设置</view>
+    </view>
+  </view>
+</view>
