@@ -1,0 +1,24 @@
+import datetime
+import pymongo
+ 
+# 连接 MongoDB 数据库
+client = pymongo.MongoClient('mongodb://localhost:27017/')
+db = client['my_database']
+collection = db['my_collection']
+ 
+def fetch_and_update_data():
+    last_updated_timestamp = datetime.datetime(2024, 7, 10, 0, 0, 0)  # 上次抓取的时间戳
+    # 查询数据源中大于上次更新时间戳的数据
+    new_data = query_data_source(last_updated_timestamp)
+    # 更新到数据库
+    for data in new_data:
+        collection.update_one({'_id': data['_id']}, {'$set': data}, upsert=True)
+ 
+def query_data_source(last_updated_timestamp):
+    # 查询数据源中大于指定时间戳的数据
+    # 示例中假设使用的是数据库查询操作或者 API 查询操作
+    # 假设数据源是 MongoDB，查询大于指定时间戳的数据
+    new_data = collection.find({'timestamp': {'$gt': last_updated_timestamp}})
+    return list(new_data)
+ 
+fetch_and_update_data()
